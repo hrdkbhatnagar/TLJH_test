@@ -2,6 +2,7 @@
 # 1. On your local machine
 
 > SSL Certificates issues 
+
 Firstly, make sure that your machine has the certificate installed correctly. 
 
 ```shell
