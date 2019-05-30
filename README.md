@@ -44,9 +44,9 @@ docker cp </directory/with/your/ssl/certificate> containername:/certificate.crt
 
 
 # Setting up Zero to JupyterHub 
-# On your local machine 
+# On your local machine (Using VirtualBox)
 
-Install virtual box your machine. Following erors may occur if Secureboot is enabled on the machine.'
+Install VirtualBox your machine. Following erors may occur if Secureboot is enabled.
 
 > kernel driver not installed (rc = - 1908)
 
@@ -57,7 +57,28 @@ For installing dkms package
 sudo apt install --reinstall linux-headers-$(uname -r) virtualbox-dkms dkms
 ```
 
-For signing the keys yourself 
+For signing the keys yourself:
+
+```
+openssl req -new -x509 -newkey rsa:2048 -keyout MOK.priv -outform DER -out MOK.der -nodes -days 36500 -subj "/CN=Descriptive common name/"
+sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 ./MOK.priv ./MOK.der $(modinfo -n vboxdrv)
+```
+
+Confirm signing by:
+`tail $(modinfo -n vboxdrv) | grep "Module signature appended"`
+
+```
+sudo mokutil --import MOK.der
+```
+Reboot, and follow the MOK signing instructions from [here](https://sourceware.org/systemtap/wiki/SecureBoot)
+
+For confirmation, run:
+
+`mokutil --test-key MOK.der`
+
+VirtualBox should now load.
+
+
 
 
 
