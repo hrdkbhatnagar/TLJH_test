@@ -43,6 +43,22 @@ docker cp </directory/with/your/ssl/certificate> containername:/certificate.crt
 ```
 
 
+# Setting up Zero to JupyterHub 
+# On your local machine 
+
+Install virtual box your machine. Following erors may occur if Secureboot is enabled on the machine.'
+
+> kernel driver not installed (rc = - 1908)
+
+Run the following commands:
+
+For installing dkms package
+```
+sudo apt install --reinstall linux-headers-$(uname -r) virtualbox-dkms dkms
+```
+
+For signing the keys yourself 
+
 
 
 
