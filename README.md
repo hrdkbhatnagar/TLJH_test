@@ -78,6 +78,19 @@ For confirmation, run:
 
 VirtualBox should now load.
 
+> Errors in creating a virtual machine in VirtualBox 
+
+Black screen during installation of Ubuntu in a VM:
+
+In virtual box's settings for the VM, make sure the following requirements are met atleast: 
+
+```
+Base Memory   2048 MB
+Video Memory  64 MB
+Disk Memory   10 GB
+```
+
+
 
 
 
