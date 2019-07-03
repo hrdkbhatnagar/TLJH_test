@@ -90,6 +90,23 @@ Video Memory  64 MB
 Disk Memory   10 GB
 ```
 
+# Authentication in JupyterHub using OAuth 
+
+It supports following:
+
+* Auth0
+* Azure
+* Bitbucket
+* CILogon
+* GitHub
+* GitLab
+* Globus
+* Google
+* MediaWiki
+* Moodle
+* Okpy
+* OpenShift
+
 
 
 
